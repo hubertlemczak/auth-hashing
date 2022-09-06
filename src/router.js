@@ -1,17 +1,15 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+
+const registerController = require('./controllers/register.controller');
+const loginController = require('./controllers/login.controller');
+const profileController = require('./controllers/profile.controller');
 
 const router = express.Router();
 
-router.post('/register', async (req, res) => {
-    
-});
+router.post('/register', registerController.registerUser);
 
-router.post('/login', async (req, res) => {
-    
-});
+router.post('/login', loginController.loginUser);
+
+router.get('/profile', profileController.getProfile);
 
 module.exports = router;
